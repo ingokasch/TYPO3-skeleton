@@ -1,4 +1,4 @@
-#XHTML 5
+#HTML 5
 config.xhtml_cleaning                     = all
 config.doctype                            = html5
 
