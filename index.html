@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="UTF-8">
+    <title>Typo3-skeleton by ingokasch</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="stylesheets/normalize.css" media="screen">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/github-light.css" media="screen">
+  </head>
+  <body>
+    <section class="page-header">
+      <h1 class="project-name">Typo3-skeleton</h1>
+      <h2 class="project-tagline">The TYPO3 Skeleton provides a base for new TYPO3 projects.</h2>
+      <a href="https://github.com/ingokasch/TYPO3-skeleton" class="btn">View on GitHub</a>
+      <a href="https://github.com/ingokasch/TYPO3-skeleton/zipball/master" class="btn">Download .zip</a>
+      <a href="https://github.com/ingokasch/TYPO3-skeleton/tarball/master" class="btn">Download .tar.gz</a>
+    </section>
+
+    <section class="main-content">
+      <h1>
+<a id="typo3-skeleton" class="anchor" href="#typo3-skeleton" aria-hidden="true"><span class="octicon octicon-link"></span></a>TYPO3 Skeleton</h1>
+
+<p>The TYPO3 Skeleton provides a base for new TYPO3 projects. </p>
+
+<p>The contents of this repository should be extracted in the project root folder. All files and folders should be integrated in the <code>fileadmin</code> subfolder.
+All existing <code>README.md</code> files should be deleted afterwards.</p>
+
+<h2>
+<a id="content" class="anchor" href="#content" aria-hidden="true"><span class="octicon octicon-link"></span></a>Content</h2>
+
+<ul>
+<li>  <a href="fileadmin/.assets/.sass">sass</a>: Folder for Sass resources (gulp is using this folder)</li>
+<li>  <a href="fileadmin/.assets/.js">js</a>: Folder for JavaScript resources (gulp is using folder)</li>
+<li>  <a href="fileadmin/css">css</a>: Folder for CSS resources webfonts, icons, images and Sass sourcemaps (CSS resources should be generated using gulp)</li>
+<li>  <a href="fileadmin/js">js</a>: Folder for JavaScript resources (should be generated using gulp)</li>
+<li>  <a href="fileadmin/templates/.templaVoila">.templaVoila</a>: Folder for TemplaVoila! resources</li>
+<li>  <a href="fileadmin/templates/.ts">.ts</a>: Folder for TypoScript resources</li>
+<li>  <a href="fileadmin/templates/html">html</a>: Folder for HTML resources (Extensions &amp; TemplaVoila! templates)</li>
+<li>  <a href="fileadmin/templates/lang">lang</a>: Folder for localisation/internationalisation resources</li>
+<li>  <a href="fileadmin/templates/res">res</a>: Folder for other resources</li>
+</ul>
+
+<h2>
+<a id="typoscript" class="anchor" href="#typoscript" aria-hidden="true"><span class="octicon octicon-link"></span></a>TypoScript</h2>
+
+<p>To use the TYPO3 Skeleton follow these steps:</p>
+
+<ol>
+<li>
+<p>The follwing line needs to be included in the TypoScript root template in the <strong>Setup</strong> section:</p>
+
+<pre><code>&lt;INCLUDE_TYPOSCRIPT: source="DIR: fileadmin/templates/.ts/includes"&gt;
+</code></pre>
+</li>
+<li>
+<p>This line needs to be included in the <strong>pageTSconfig</strong> on the website root page (<code>Edit page &gt; Resourcen &gt; TypoScript Configuration</code>):</p>
+
+<pre><code>&lt;INCLUDE_TYPOSCRIPT: source="FILE: fileadmin/templates/.ts/TSconfig/page.ts"&gt;
+</code></pre>
+</li>
+<li>
+<p>You may want to include this line user's <strong>userTSconfig</strong>, to further configure the user settings:</p>
+
+<pre><code>&lt;INCLUDE_TYPOSCRIPT: source="FILE: fileadmin/templates/.ts/TSconfig/user.ts"&gt;
+</code></pre>
+</li>
+<li>
+<p>This constants are mandatory and need to be included in the TypoScript main templates <strong>Constants</strong> section:</p>
+
+<pre><code>compressJs = 1
+compressCss = 1
+concatenateJsAndCss = 1
+</code></pre>
+</li>
+</ol>
+
+<h2>
+<a id="safety-precautions" class="anchor" href="#safety-precautions" aria-hidden="true"><span class="octicon octicon-link"></span></a>Safety precautions</h2>
+
+<p>To prevent the webserver from calling certain resources (TypoScript &amp; Sass files, TemplaVoila! structures etc.) you should include the following lines in your .htaccess file. All files and folders beginning with a "." will not be callable via HTTP.  </p>
+
+<pre><code>###########################################################################
+# Disabling all files or folders within fileadmin starting with a .
+###########################################################################
+RewriteRule ^fileadmin/(.*/)?\. - [F]
+</code></pre>
+
+      <footer class="site-footer">
+        <span class="site-footer-owner"><a href="https://github.com/ingokasch/TYPO3-skeleton">Typo3-skeleton</a> is maintained by <a href="https://github.com/ingokasch">ingokasch</a>.</span>
+
+        <span class="site-footer-credits">This page was generated by <a href="https://pages.github.com">GitHub Pages</a> using the <a href="https://github.com/jasonlong/cayman-theme">Cayman theme</a> by <a href="https://twitter.com/jasonlong">Jason Long</a>.</span>
+      </footer>
+
+    </section>
+
+            <script type="text/javascript">
+            var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+            document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+          </script>
+          <script type="text/javascript">
+            try {
+              var pageTracker = _gat._getTracker("UA-51448998-2");
+            pageTracker._trackPageview();
+            } catch(err) {}
+          </script>
+
+  </body>
+</html>
