@@ -1,0 +1,18 @@
+@import "mq/_default/general";
+@import "mq/_default/typo";
+@import "mq/_default/layout";
+@import "mq/_default/nav";
+@import "mq/_default/footer";
+
+// Mediaqueries
+@media all and (min-width: $breakpoint-10) {
+    @import "mq/breakpoint_10/layout";
+    @import "mq/breakpoint_10/nav";
+    @import "mq/breakpoint_10/footer";
+}
+
+@media all and (min-width: $breakpoint-20) {
+    @import "mq/breakpoint_20/layout";
+    @import "mq/breakpoint_20/nav";
+    @import "mq/breakpoint_20/footer";
+}
