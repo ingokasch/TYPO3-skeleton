@@ -1,18 +1,20 @@
 {
   "engines": {
-    "node": ">= 0.10.0"
+    "node": "*"
   },
   "devDependencies": {
     "gulp": "*",
     "gulp-autoprefixer": "*",
     "gulp-concat": "*",
-    "gulp-jscs": "^1.3.0",
+    "gulp-jscs": "*",
     "gulp-notify": "*",
     "gulp-plumber": "*",
     "gulp-rename": "~*",
     "gulp-sass": "*",
     "gulp-sourcemaps": "*",
     "gulp-uglify": "*",
-    "gulp-watch": "*"
+    "gulp-watch": "*",
+    "gulp-typescript": "*",
+    "merge2": "*"
   }
 }

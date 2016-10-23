@@ -16,6 +16,8 @@ var uglify		= require('gulp-uglify');				// Javascript minification
 var notify		= require('gulp-notify');				// Notifications
 var plumber 	= require('gulp-plumber');				// Continue on error
 var jscs 		= require('gulp-jscs');					// Javascript code style
+var typescript  = require('gulp-typescript');           // Typescript
+var merge       = require('merge2');                    // Merge multiple streams into one stream in sequence or parallel
 
 /************************************************************************************************************************************
  3. Default Task
@@ -60,8 +62,7 @@ gulp.task('sass', function () {
         .pipe(sourcemaps.init())
         .pipe(plumber())
         .pipe(sass({
-            style: 'compressed'
-//            ,'sourcemap=none': true
+            outputStyle: 'compressed'
         }))
         .pipe(plumber())
         .pipe(prefix(
@@ -83,8 +84,7 @@ gulp.task('iconizr', function () {
         .pipe(sourcemaps.init())
         .pipe(plumber())
         .pipe(sass({
-            style: 'compressed'
-//            ,'sourcemap=none': true
+            outputStyle: 'compressed'
         }))
         .pipe(plumber())
         .pipe(prefix(
@@ -136,4 +136,20 @@ gulp.task('javascript-with-vendor', function(){
 gulp.task('jscs', function(){
     return gulp.src(['fileadmin/.assets/js/**/*.js', '!fileadmin/.assets/js/vendor/**/*.js'])
         .pipe(jscs());
+});
+
+/************************************************************************************************************************************
+ 7. Typescript
+ ************************************************************************************************************************************/
+gulp.task('typescript', function() {
+    var tsResult = gulp.src(['fileadmin/.assets/typescript/**/*.ts'])
+        .pipe(typescript({
+            declarationFiles: true,
+            noExternalResolve: true
+        }));
+
+    return merge([
+        tsResult.dts.pipe(gulp.dest('fileadmin/.assets/typescript/definitions')),
+        tsResult.js.pipe(gulp.dest('fileadmin/.assets/js'))]
+    );
 });
