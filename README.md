@@ -37,7 +37,7 @@ To use the TYPO3 Skeleton follow these steps:
     
         <INCLUDE_TYPOSCRIPT: source="FILE: fileadmin/templates/.ts/TSconfig/user.ts">
         
-4.  This constants are mandatory and need to be included in the TypoScript main templates **Constants** section:
+4.  These constants are mandatory and need to be included in the TypoScript main templates **Constants** section:
 
         compressJs = 1
         compressCss = 1
