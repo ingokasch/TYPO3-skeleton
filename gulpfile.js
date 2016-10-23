@@ -145,7 +145,7 @@ gulp.task('typescript', function() {
     var tsResult = gulp.src(['fileadmin/.assets/typescript/**/*.ts'])
         .pipe(typescript({
             declarationFiles: true,
-            noExternalResolve: true
+            noResolve: true
         }));
 
     return merge([
